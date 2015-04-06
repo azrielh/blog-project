@@ -33,13 +33,28 @@
 
   <div id="main_content">
     <div id="header">
-      <p><%= link_to "All Posts", posts_path %></p>
+      <% if current_page?(root_path) %>
+        <p>All Posts</p>
+      <% else %>
+        <p><%= link_to "Back to All Posts", root_path %></p>
+      <% end %>
 
       <div class="buttons">
         <button class="button"><%= link_to "New Post", new_post_path %></button>
-        <button class="button">log out</button>
+
+        <% if user_signed_in? %>
+          <p>Welcome <%= current_user.full_name %></p>
+          <button class="button"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></button>
+        <% else %>
+        <button class="button"><%= link_to "Register", new_user_registration_path %></button>
+        <button class="button"><%= link_to "Sign In", new_user_session_path %></button>
+        <% end %>
+
       </div>
     </div>
+    <!-- from devise -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert") %>
