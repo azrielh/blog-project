@@ -4,7 +4,12 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @posts = Post.all.order('created_at DESC').page(params[:page]).per(5)
+    if params[:search]
+      # render text: params
+      @posts = Post.search_for(params[:search]).sort_created.page(params[:page]).per(5)
+    else
+      @posts = Post.all.sort_created.page(params[:page]).per(5)
+    end
   end
 
   def new

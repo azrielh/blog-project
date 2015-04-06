@@ -1,3 +1,7 @@
+<hr>
+<%= render "form_search" %>
+<hr>
+
 <% @posts.each do |p| %>
   <div class="post_wrapper">
     <h2 class="title"><%= link_to p.title, post_path(p) %></h2>
