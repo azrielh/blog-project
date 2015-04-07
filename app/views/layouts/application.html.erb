@@ -4,35 +4,24 @@
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Lobster' %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Cabin' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="sidebar">
-    <div id="logo">
-      <%= link_to root_path do %>
-        <%= image_tag "/az.jpg" %>
-      <% end %>
-    </div>
+  <div class="container-fluid full-site">
+  <nav class="navbar navbar-default">
 
-    <ul>
-      <li class="category">Website</li>
-      <li><%= link_to "Blog", root_path %></li>
-      <li>About</li>
-    </ul>
+        <a class="navbar-brand azimg" id="azimg">
+          <%= link_to root_path do %>
+            <%= image_tag "az.jpg" %>
+          <% end %>
+        </a>
 
-    <ul>
-      <li class="category">Social</li>
-      <li><a href="http://twitter.com/azhopkins">Twitter</a></li>
-      <li><a href="http://github.com/azrielh">GitHub</a></li>
-      <li><a href="mailto:azhopkins@gmail.com">Email</a></li>
-    </ul>
 
-    <p class="sign_in">Admin Login</p>
-  </div>
+      <h1 class="animated flipInY header">Welcome to the blog</h1>
 
-  <div id="main_content">
-    <div id="header">
       <% if current_page?(root_path) %>
         <p>All Posts</p>
       <% else %>
@@ -49,24 +38,42 @@
         <button class="button"><%= link_to "Register", new_user_registration_path %></button>
         <button class="button"><%= link_to "Sign In", new_user_session_path %></button>
         <% end %>
-
       </div>
     </div>
-    <!-- from devise -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert") %>
-    <% end %>
+  </nav>
+    <!-- end of the navbar -->
+    <div class="col-sm-3 sidebar">
+    <ul>
+      <li class="sidebar_title">Website</li>
+      <li><%= link_to "Blog", root_path %></li>
+      <li>About</li>
+    </ul>
 
-
-<%= yield %>
-
-
+    <ul>
+      <li class"sidebar_title">Social</li>
+      <li><a href="http://twitter.com/azhopkins">Twitter</a></li>
+      <li><a href="http://github.com/azrielh">GitHub</a></li>
+      <li><a href="mailto:azhopkins@gmail.com">Email</a></li>
+    </ul>
   </div>
 
+    <!-- from devise -->
+    <div class="col-sm-9 maincontent">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert") %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+
+    </div>
+
+  </div>
 
 
 </body>
