@@ -10,56 +10,51 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container-fluid full-site">
-  <nav class="navbar navbar-default">
+  <div class="navbar navbar-default">
+    <div class="container">
 
-        <a class="navbar-brand azimg" id="azimg">
-          <%= link_to root_path do %>
-            <%= image_tag "az.jpg" %>
+      <h1 class="animated flipInY blog_header">Blog</h1>
+
+      <div class="nav navbar-nav navbar-right">
+        <p class="btn btn-default"><%= link_to "New Post", new_post_path %></p>
+          <% if user_signed_in? %>
+            <button class="btn btn-default"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></button>
+            <p>Welcome <%= current_user.full_name %></p>
+          <% else %>
+            <p class="btn btn-default"><%= link_to "Register", new_user_registration_path %></p>
+            <p class="btn btn-default"><%= link_to "Sign In", new_user_session_path %></p>
           <% end %>
-        </a>
-
-
-      <h1 class="animated flipInY header">Welcome to the blog</h1>
-
-      <% if current_page?(root_path) %>
-        <p>All Posts</p>
-      <% else %>
-        <p><%= link_to "Back to All Posts", root_path %></p>
-      <% end %>
-
-      <div class="buttons">
-        <button class="button"><%= link_to "New Post", new_post_path %></button>
-
-        <% if user_signed_in? %>
-          <p>Welcome <%= current_user.full_name %></p>
-          <button class="button"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></button>
-        <% else %>
-        <button class="button"><%= link_to "Register", new_user_registration_path %></button>
-        <button class="button"><%= link_to "Sign In", new_user_session_path %></button>
-        <% end %>
+        </div>
       </div>
     </div>
 
-  </nav>
-    <!-- end of the navbar -->
-    <div class="col-sm-3 sidebar">
-    <ul>
-      <li class="sidebar_title">Website</li>
-      <li><%= link_to "Blog", root_path %></li>
-      <li>About</li>
-    </ul>
+  <!-- end of the navbar -->
 
-    <ul>
-      <li class"sidebar_title">Social</li>
-      <li><a href="http://twitter.com/azhopkins">Twitter</a></li>
-      <li><a href="http://github.com/azrielh">GitHub</a></li>
-      <li><a href="mailto:azhopkins@gmail.com">Email</a></li>
-    </ul>
-  </div>
+  <!-- <div class="container-fluid full-site"> -->
+    <div class="col-sm-2 sidebar">
+      <ul>
+        <!-- <li class="sidebar_blog"><%= link_to "Blog", root_path %></li> -->
+        <li class="sidebar_blog">
+          <% if current_page?(root_path) %>
+            All Blogs
+          <% else %>
+            <%= link_to "All Blog Posts", root_path %>
+          <% end %>
+        </li>
+        <!-- <li>About</li> -->
+      </ul>
+
+      <ul>
+        <li class"sidebar_social">Social</li>
+        <li><a href="http://twitter.com/azhopkins">Twitter</a></li>
+        <li><a href="http://github.com/azrielh">GitHub</a></li>
+        <li><a href="mailto:azhopkins@gmail.com">Email</a></li>
+      </ul>
+    </div>
 
     <!-- from devise -->
-    <div class="col-sm-9 maincontent">
+    <div class="col-sm-10 maincontent">
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
@@ -69,12 +64,7 @@
 
       <%= yield %>
     </div>
-
-
-    </div>
-
-  </div>
-
+  <!-- </div> -->
 
 </body>
 </html>

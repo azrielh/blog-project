@@ -9,14 +9,14 @@
   <% end %>
 
   <p>
-    <%= p.label :title %>
-    <%= p.text_field :title, placeholder: "Add blog title here" %>
+    <%= p.label :title, "Title" %>
+    <%= p.text_field :title, placeholder: "Add blog title here", class: "form-control" %>
   </p>
   <br>
     <p>
-      <%= p.label :body %>
-      <%= p.text_area :body, placeholder: "What do you want to write" %>
+      <%= p.label :body, "Content" %>
+      <%= p.text_area :body, placeholder: "What do you want to write", class: "form-control" %>
     </p>
   <br>
-  <%= p.submit %>
+  <%= p.submit " Submit", :class => "btn btn-default" %>
 <% end %>

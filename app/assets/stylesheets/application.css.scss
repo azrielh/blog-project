@@ -38,20 +38,40 @@ p, a, li {
 }
 
 .sidebar_title li {
-  color: #f9f9c7;
+  color: black;
 }
 
 .sidebar li {
   list-style-type: none;
   text-decoration: none;
-  font-family: 'Cabin', sans-serif;
-  font-size: 24px;
-  color: #f9f9c7;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 30px;
+  color: black;
 }
 
-.header h1 {
+.sidebar a {
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 22px;
+  color: #f9f9c7;
+  text-shadow: 1px 1px white, -1px -1px #444;
+}
+
+.sidebar .sidebar_blog a {
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 36px;
+  color: #f9f9c7;
+  text-shadow: 1px 1px white, -1px -1px #444;
+}
+
+h1.blog_header {
   font-family: 'Lobster', sans-serif;
-  font-size: 50px;
+  font-size: 65px;
+  text-align: center;
+  display: inline;
 }
 
 /*________________________________
@@ -60,39 +80,73 @@ _________________________________*/
 
 
 .sidebar {
-  background-color: #fe523e;
+  /* background-color: #fe523e; original color*/
+  background-color: #db705d;
   height: 100vh;
 }
 
-.maincontent {
+/* .maincontent {
   background-color: #222;
-  /* background-color: #f9f9c7; */
+  background-color: #f9f9c7;
   height: 100vh;
   color: #f9f9c7;
-  /* color: white; */
+  color: white;
   font-size: 20px;
-}
+} */
 
 .navbar {
-  background-color: #1cbcb4;
+  /* background-color: #1cbcb4; */
+  background-color: #4a5f8c;
+}
+
+.blog_header {
+  width: 50%;
+  display: inline-block;
+}
+
+.show_posts {
+  margin: 20px;
+  padding: 5px 15px 5px 15px;
+  background-color: rgba(158, 158, 158, .6);
+  border-radius: 5px;
+}
+
+.col-sm-2.sidebar {
+  padding: 10px;
+  text-align: right;
+  height: 1400px;
+}
+
+.col-sm-10.maincontent {
+  height: 1400px;
+
+}
+
+.navbar.navbar-default {
+  margin: 0;
+}
+
+.navbar.navbar-default {
+  postition: absolute;
+  margin: -5px -5px 0 -5px;
+  padding: 20px;
+  border-bottom: black 1px solid;
 }
 
 /*________________________________
 images
 _________________________________*/
 
-#azimg {
-  display: inline-block;
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-}
-
 img {
   display: inline-block;
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
+  height: 1000px;
+  width: 1000px;
+}
+
+.maincontent {
+  background-image: url("man_stick2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .buttons {
