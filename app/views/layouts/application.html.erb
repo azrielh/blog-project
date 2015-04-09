@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
   <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Lobster' %>
   <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Cabin' %>
@@ -10,25 +10,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-default">
+  <div class="navbar navbar-fixed-top">
     <div class="container">
-
-      <h1 class="animated flipInY blog_header">Blog</h1>
-
-      <div class="nav navbar-nav navbar-right">
-        <p class="btn btn-default"><%= link_to "New Post", new_post_path %></p>
+      <h1 class="animated flipInY blog_header navbar-brand">Blog</h1>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><%= link_to "New Post", new_post_path, class: "btn btn-success" %></li>
+          <li> </li>
           <% if user_signed_in? %>
-            <button class="btn btn-default"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></button>
-            <p>Welcome <%= current_user.full_name %></p>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-success" %></li>
+            <li><p>Welcome <%= current_user.full_name %></p><li>
           <% else %>
-            <p class="btn btn-default"><%= link_to "Register", new_user_registration_path %></p>
-            <p class="btn btn-default"><%= link_to "Sign In", new_user_session_path %></p>
+            <li><%= link_to "Register", new_user_registration_path, class: "btn btn-success" %></li>
+            <li><%= link_to "Sign In", new_user_session_path, class: "btn btn-success" %></li>
           <% end %>
-        </div>
-      </div>
+        </ul>
     </div>
-
-  <!-- end of the navbar -->
+  </div>
 
   <!-- <div class="container-fluid full-site"> -->
     <div class="col-sm-2 sidebar">

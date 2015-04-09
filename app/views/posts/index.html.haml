@@ -6,8 +6,7 @@
     .show_posts
       %h2= link_to p.title, post_path(p)
       %p= p.created_at.strftime("Created on %B, %d, %Y")
-      %p "Created By:"
-      %p= p.user.full_name
+      %p Created By: #{p.user.full_name}
   / kaminari
 .pagination
   %a= paginate @posts

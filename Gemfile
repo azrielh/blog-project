@@ -15,6 +15,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'haml', '~> 4.0.6'
+gem 'paperclip', '~> 4.2.1'
 
 group :development, :test do
   gem 'byebug'
