@@ -12,6 +12,9 @@ class Post < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
+  has_many :tags, dependent: :destroy
+  has_many :categories, through: :tags
+
 
   def self.search_for(find)
     where("title ILIKE ? OR body ILIKE ?", "%#{find}%", "%#{find}%")

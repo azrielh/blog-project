@@ -142,6 +142,23 @@ _________________________________*/
   opacity: .75;
 }
 
+.tags {
+  border: 1px black solid;
+  background-color: #dc9119;
+  height: 25px;
+  width: 80px;
+  border-radius: 5px;
+  float: right;
+  margin: 5px;
+  text-align: center;
+}
+
+.nav-buttons p.tags {
+  font-size: 16px;
+  font-family: 'Lobster', sans-serif;
+}
+
+
 /*________________________________
 images
 _________________________________*/

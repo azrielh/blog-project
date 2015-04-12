@@ -17,10 +17,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    # @post = Post.new(post_params)
+    # @post.user = current_user
     # or can be written in one line
-    # @post = current_user.posts.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to post_path(@post)
     else
@@ -57,6 +57,6 @@ private
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, { category_ids: [] })
   end
 end
