@@ -38,7 +38,7 @@
             <%= link_to "All Blog Posts", root_path %>
           <% end %>
         </li>
-        <!-- <li>About</li> -->
+
       </ul>
 
       <ul>
@@ -51,17 +51,15 @@
 
     <!-- from devise -->
     <div class="col-sm-10 maincontent">
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
-      <% flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: "alert") %>
+      <% if flash[:notice] %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% elsif flash[:alert] %>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
 
       <%= yield %>
+
     </div>
-  <!-- </div> -->
 
 </body>
 </html>

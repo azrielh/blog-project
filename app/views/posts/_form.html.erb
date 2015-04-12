@@ -13,10 +13,13 @@
     <%= p.text_field :title, placeholder: "Add blog title here", class: "form-control" %>
   </p>
   <br>
-    <p>
-      <%= p.label :body, "Content" %>
-      <%= p.text_area :body, placeholder: "What do you want to write", class: "form-control" %>
-    </p>
+  <p>
+    <%= p.label :body, "Content" %>
+    <%= p.text_area :body, placeholder: "What do you want to write", class: "form-control" %>
+  </p>
   <br>
+    <%= p.file_field :image %>
+  <br>
+
   <%= p.submit " Submit", :class => "btn btn-default" %>
 <% end %>
