@@ -6,15 +6,18 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: {minimum: 5}
   validates :body, presence: true
 
-  has_attached_file :image, :styles => { :medium => "300x300#" }
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
   has_many :tags, dependent: :destroy
   has_many :categories, through: :tags
 
+  has_many :favourites, dependent: :destroy
+  has_many :users_who_favourite, through: :favourites, source: :user
+
+
+  has_attached_file :image, :styles => { :medium => "300x300#" }
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def self.search_for(find)
     where("title ILIKE ? OR body ILIKE ?", "%#{find}%", "%#{find}%")

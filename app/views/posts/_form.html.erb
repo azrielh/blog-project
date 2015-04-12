@@ -20,7 +20,7 @@
   <br>
     <%= p.file_field :image %>
   <br>
-    <%= p.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    <%= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
 
   <%= p.submit " Submit", :class => "btn btn-default" %>
 

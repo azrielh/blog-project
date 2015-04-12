@@ -30,6 +30,9 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
+    # need to create a method in the model for like_for and favourite_for
+    # @favourite = @post.favourite_for(current_user) if user_signed_in?
+    # @like      = @post.like_for(current_user)      if user_signed_in?
   end
 
   def edit

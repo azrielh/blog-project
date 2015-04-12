@@ -11,17 +11,25 @@
   <div class="nav-buttons">
     <% if user_signed_in? %>
 
-      <% like = @post.likes.find_by_user_id(current_user.id) if user_signed_in? %>
+      <% favourite = @post.favourites.find_by_user_id(current_user.id) if user_signed_in? %>
+      <% if favourite %>
+        <%= link_to fa_icon("star 4x"), [@post, favourite], method: :delete %>
+      <% else %>
+        <%= link_to fa_icon("star-o 4x"), post_favourites_path(@post), method: :post %>
+      <% end %>
 
+
+      <% like = @post.likes.find_by_user_id(current_user.id) if user_signed_in? %>
       <% if like %>
         <%= link_to fa_icon("thumbs-up 4x"), post_like_path(@post, like), method: :delete %>
       <% else %>
         <%= link_to fa_icon("thumbs-o-up 4x"), post_likes_path(@post), method: :post %> |
       <% end %>
 
-    <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-default" %> |
-    <%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"}, class: "btn btn-default" %>
+      <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-default" %> |
+      <%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"}, class: "btn btn-default" %>
     <% end %>
+
     <% @post.categories.each do |n| %>
       <p class="tags"><%= n.name %></p>
     <% end %>
