@@ -6,6 +6,7 @@
       <h2><%= link_to p.title, post_path(p) %></h2>
       <p><%= p.created_at.strftime("Created on %B, %d, %Y") %></p>
       <p> Created By: <%= p.user.full_name %></p>
+      <%= image_tag p.image.url(:thumb), class: "thumb-image" %>
     </div>
   <% end %>
 </div>

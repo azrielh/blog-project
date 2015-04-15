@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
+  <div class="navbar">
     <div class="container">
       <h1 class="animated flipInY blog_header navbar-brand">Blog</h1>
         <ul class="nav navbar-nav navbar-right">
@@ -51,16 +51,16 @@
     </div>
 
     <!-- from devise -->
-    <div class="col-sm-10 maincontent">
-      <% if flash[:notice] %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% elsif flash[:alert] %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+      <div class="col-sm-10 maincontent container">
+        <% if flash[:notice] %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% elsif flash[:alert] %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
 
-      <%= yield %>
+        <%= yield %>
 
-    </div>
+      </div>
 
 </body>
 </html>

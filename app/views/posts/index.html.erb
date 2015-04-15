@@ -1,13 +1,22 @@
-<hr>
-<%= render "form_search" %>
-<hr>
-
-<% @posts.each do |p| %>
-  <div class="show_posts">
-    <h2><%= link_to p.title, post_path(p) %></h2>
-    <p><%= p.created_at.strftime("Created on %B, %d, %Y") %></p>
-    <p>Created By: <%= p.user.full_name %></p>
+<div class="container">
+  <div class="container">
+    <i class="fa fa-search fa-3x search-btn"></i>
   </div>
-<% end %>
+  <%= render "form_search" %>
+</div>
+
+<div class="container">
+  <% @posts.each do |p| %>
+    <div class="show_posts">
+      <%= image_tag p.image.url(:thumb), class: "thumb-image" %>
+      <h2><%= link_to p.title, post_path(p) %></h2>
+      <p><%= truncate(p.body) %></p>
+      <p><%= p.created_at.strftime("Created on %B, %d, %Y") %></p>
+      <p>Created By: <%= p.user.full_name %></p>
+      <p>like count: <%= p.likes.count %></p>
+    </div>
+  <% end %>
+</div>
 <!-- kaminari -->
-<%= paginate @posts %>
+
+<h1><%= paginate @posts %></h1>

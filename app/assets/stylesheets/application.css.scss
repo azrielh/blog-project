@@ -40,6 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 p, a, li {
   font-family: 'Cabin', serif;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .sidebar_title li {
@@ -114,6 +115,9 @@ _________________________________*/
   padding: 5px 15px 5px 15px;
   background-color: rgba(158, 158, 158, .6);
   border-radius: 5px;
+  float: left;
+  width: 400px;
+  height: 400px;
 }
 
 .col-sm-2.sidebar {
@@ -158,6 +162,10 @@ _________________________________*/
   font-family: 'Lobster', sans-serif;
 }
 
+.pagination {
+  display: block;
+}
+
 
 /*________________________________
 images
@@ -170,9 +178,10 @@ img {
 }
 
 .maincontent {
-  background-image: url("blog3.jpg");
+  background-image: url("blog4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+
 }
 
 .buttons {
@@ -204,4 +213,12 @@ p.post-body {
 .nav-buttons {
   display: block;
   margin-top: 40px;
+}
+
+.thumb-image {
+  width: 200px;
+  height: 200px;
+  border: 1px black solid;
+  border-radius: 15px;
+  margin: 0 auto;
 }

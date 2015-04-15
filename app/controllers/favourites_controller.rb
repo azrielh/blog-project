@@ -20,7 +20,6 @@ class FavouritesController < ApplicationController
     post = Post.find params[:post_id]
     favourite = current_user.favourites.find params[:id]
     favourite.destroy
-
     redirect_to post_path(post), alert: "Favourite removed :("
 
   end
