@@ -27,4 +27,8 @@ class Post < ActiveRecord::Base
     order('created_at DESC')
   end
 
+  def increment_view_count
+    increment!(:view_count)
+  end
+
 end

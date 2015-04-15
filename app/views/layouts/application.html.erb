@@ -10,57 +10,124 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar">
-    <div class="container">
-      <h1 class="animated flipInY blog_header navbar-brand">Blog</h1>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><%= link_to "New Post", new_post_path, class: "btn btn-success" %></li>
-          <li> </li>
-          <% if user_signed_in? %>
-            <li><h3>Welcome <%= current_user.full_name %></h3><li>
-            <li><%= link_to "Favourites", favourites_path, class: "btn btn-warning" %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-success" %></li>
-          <% else %>
-            <li><%= link_to "Register", new_user_registration_path, class: "btn btn-success" %></li>
-            <li><%= link_to "Sign In", new_user_session_path, class: "btn btn-success" %></li>
-          <% end %>
-        </ul>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Az Blog</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- <ul class="nav navbar-nav">
+        <li><h1 class="animated flipInY blog_header navbar-brand">Blog</h1></li>
+        <li class="active"><a href="#">All Blog Posts <span class="sr-only">(current)</span></a></li>
+      </ul> -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><h3>Welcome <%= current_user.full_name %></h3><li>
+          <li><%= link_to "Favourites", favourites_path, class: "" %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "" %></li>
+        <% else %>
+          <li><%= link_to "Register", new_user_registration_path, class: "" %></li>
+          <li><%= link_to "Sign In", new_user_session_path, class: "" %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Jumbotron for the search fields and the background picture -->
+
+<div class="jumbotron">
+  <div class="container">
+  <h1>Blogs have a new home...</h1>
+  <form role="search">
+    <div class="form-group col-xs-4">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+    <button type="submit" class="btn btn-default">Search Blogs</button>
+  </form>
+
+  </div>
+</div>
+
+
+<div class="container-fluid main-content">
+<!-- This is for the featured post and the recent posts -->
+<div class="col-sm-10 maincontent container">
+
+  <% if flash[:notice] %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% elsif flash[:alert] %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+  <div class="container">
+    <div class="col-xs-12 col-sm-9">
+      Most favourited post/ Featured Post
+    </div>
+
+    <div class="col-sm-3">
+      <div class="col-sm-12">
+        Recent Posts ordered and truncated
+      </div>
+    </div>
+
+    <div class="col-sm-4 col-xs-12">
+
+      <%= yield %>
+
     </div>
   </div>
 
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Sidebar links -->
   <!-- <div class="container-fluid full-site"> -->
-    <div class="col-sm-2 sidebar">
-      <ul>
-        <!-- <li class="sidebar_blog"><%= link_to "Blog", root_path %></li> -->
-        <li class="sidebar_blog">
-          <% if current_page?(root_path) %>
-            All Blogs
-          <% else %>
-            <%= link_to "All Blog Posts", root_path %>
-          <% end %>
-        </li>
+      <!-- <div class="col-sm-2 sidebar">
+        <ul>
+          <li class="sidebar_blog">
+            <% if current_page?(root_path) %>
+              All Blogs
+            <% else %>
+              <%= link_to "All Blog Posts", root_path %>
+            <% end %>
+          </li>
+        </ul> -->
 
-      </ul>
 
-      <ul>
+<!-- Content links -->
+      <!-- <ul>
         <li class"sidebar_social">Social</li>
         <li><a href="http://twitter.com/azhopkins">Twitter</a></li>
         <li><a href="http://github.com/azrielh">GitHub</a></li>
         <li><a href="mailto:azhopkins@gmail.com">Email</a></li>
       </ul>
-    </div>
+    </div> -->
 
     <!-- from devise -->
-      <div class="col-sm-10 maincontent container">
-        <% if flash[:notice] %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% elsif flash[:alert] %>
-          <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
 
-        <%= yield %>
 
-      </div>
 
 </body>
 </html>

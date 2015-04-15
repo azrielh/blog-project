@@ -7,7 +7,7 @@
 
 <div class="container">
   <% @posts.each do |p| %>
-    <div class="show_posts">
+    <div class="show_posts col-sm-4">
       <%= image_tag p.image.url(:thumb), class: "thumb-image" %>
       <h2><%= link_to p.title, post_path(p) %></h2>
       <p><%= truncate(p.body) %></p>
@@ -18,5 +18,6 @@
   <% end %>
 </div>
 <!-- kaminari -->
-
-<h1><%= paginate @posts %></h1>
+<div class="container">
+  <h1><%= paginate @posts %></h1>
+</div>

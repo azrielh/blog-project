@@ -23,15 +23,43 @@ html {
 }
 
 body {
-  padding-top: 137px;
+  padding-top: 50px;
 }
+
+
+/*________________________________
+fonts
+_________________________________*/
+
+
+
+
+
+
+
+
+/*________________________________
+content body
+_________________________________*/
+
+.show_posts {
+  background-color: grey;
+
+}
+
+
+
+
+
+
+
 
 
  /*________________________________
  fonts
  _________________________________*/
 
-
+/*
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   font-family: 'Raleway', sans-serif;
@@ -78,18 +106,18 @@ h1.blog_header {
   font-size: 65px;
   text-align: center;
   display: inline;
-}
+} */
 
 /*________________________________
 containers
 _________________________________*/
 
-
+/*
 .sidebar {
-  /* background-color: #fe523e; original color*/
+  background-color: #fe523e; original color
   background-color: #db705d;
   height: 100vh;
-}
+} */
 
 /* .maincontent {
   background-color: #222;
@@ -99,9 +127,9 @@ _________________________________*/
   color: white;
   font-size: 20px;
 } */
-
+/*
 .navbar {
-  /* background-color: #1cbcb4; */
+  background-color: #1cbcb4;
   background-color: #4a5f8c;
 }
 
@@ -167,9 +195,9 @@ _________________________________*/
 }
 
 
-/*________________________________
+________________________________
 images
-_________________________________*/
+_________________________________
 
 img {
   display: inline-block;
@@ -222,3 +250,4 @@ p.post-body {
   border-radius: 15px;
   margin: 0 auto;
 }
+ */
