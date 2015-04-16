@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.sort_created.page(params[:page]).per(5)
     end
+      @post_viewed = Post.most_viewed_post
   end
 
   def new

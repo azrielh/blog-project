@@ -5,19 +5,45 @@
   <%= render "form_search" %>
 </div>
 
-<div class="container">
-  <% @posts.each do |p| %>
-    <div class="show_posts col-sm-4">
-      <%= image_tag p.image.url(:thumb), class: "thumb-image" %>
-      <h2><%= link_to p.title, post_path(p) %></h2>
-      <p><%= truncate(p.body) %></p>
-      <p><%= p.created_at.strftime("Created on %B, %d, %Y") %></p>
-      <p>Created By: <%= p.user.full_name %></p>
-      <p>like count: <%= p.likes.count %></p>
-    </div>
+<div class="container-fluid main-content">
+  <!-- This is for the alert notices at the top of the page -->
+  <% if flash[:notice] %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% elsif flash[:alert] %>
+    <p class="alert alert-danger"><%= alert %></p>
   <% end %>
+
+<!-- This is for the featured post and the recent posts -->
+  <div class="col-sm-12 feature_recent container">
+    <div class="container">
+      <div class="col-xs-12 col-sm-9">
+        <h2><%= link_to @post_viewed.title, post_path(@post_viewed) %></h2>
+        <p><%= truncate(@post_viewed.body) %></p>
+        <%= image_tag @post_viewed.image.url(:thumb), class: "thumb-image" %>
+      </div>
+
+      <div class="col-sm-3 col-xs-12">
+        Recent Posts ordered and truncated
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <% @posts.each do |p| %>
+      <div class="show_posts col-md-4 col-xs-12 col-sm-6">
+        <%= image_tag p.image.url(:thumb), class: "thumb-image" %>
+        <h2><%= link_to p.title, post_path(p) %></h2>
+        <p><%= truncate(p.body) %></p>
+        <p><%= p.created_at.strftime("Created on %B, %d, %Y") %></p>
+        <p>Created By: <%= p.user.full_name %></p>
+        <p>like count: <%= p.likes.count %></p>
+      </div>
+    <% end %>
+  </div>
+  <!-- kaminari -->
+  <div class="container">
+    <h1><%= paginate @posts %></h1>
+  </div>
 </div>
-<!-- kaminari -->
-<div class="container">
-  <h1><%= paginate @posts %></h1>
+
 </div>

@@ -15,6 +15,7 @@ class Post < ActiveRecord::Base
   has_many :favourites, dependent: :destroy
   has_many :users_who_favourite, through: :favourites, source: :user
 
+  after_initialize :default_count
 
   has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => ":style/blog-default.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
@@ -27,8 +28,20 @@ class Post < ActiveRecord::Base
     order('created_at DESC')
   end
 
+  def self.recent_five
+    order("created_at DESC").limit(5)
+  end
+
+  def self.most_viewed_post
+    order("view_count DESC").first
+  end
+
   def increment_view_count
     increment!(:view_count)
+  end
+
+  def default_count
+    view_count ||= 0
   end
 
 end
