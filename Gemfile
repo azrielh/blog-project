@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'haml', '~> 4.0.6'
 gem 'paperclip', '~> 4.2.1'
 gem 'font-awesome-rails', '~> 4.3.0.0'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'byebug'

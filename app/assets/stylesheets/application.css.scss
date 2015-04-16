@@ -31,6 +31,13 @@ body {
 fonts
 _________________________________*/
 
+p.most_viewed {
+  color: grey;
+  font-size: 14px;
+
+}
+
+
 
 
 
@@ -39,16 +46,71 @@ _________________________________*/
 
 
 /*________________________________
-content body
+images
 _________________________________*/
 
-.show_posts {
-  background-color: grey;
-
+.fa-tag {
+  margin: 5px;
 }
 
 
 
+
+
+
+/*________________________________
+navigation bar
+_________________________________*/
+
+.navbar {
+  background-color: #000;
+}
+
+
+/*________________________________
+jumbotron
+_________________________________*/
+
+.jumbotron {
+  background-color: #000;
+  font-family: "Menlo";
+  color: #fff;
+
+}
+
+
+/*________________________________
+most viewed / recent posts and tags
+_________________________________*/
+
+
+.most_viewed {
+  padding: 15px;
+}
+
+
+
+/*________________________________
+index posts content
+_________________________________*/
+
+.post-content {
+  padding: 20px;
+}
+
+.medium-image {
+  width: 100%;
+}
+
+.show_posts {
+  background-color: #d0d0d0;
+  word-wrap: break-word;
+
+}
+
+.each_post {
+  padding: 30px;
+}
 
 
 
