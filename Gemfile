@@ -28,5 +28,6 @@ group :development, :test do
   gem "hirb"
   gem "faker"
   gem 'pry-rails'
+  gem "letter_opener"
 
 end
