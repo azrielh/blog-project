@@ -18,7 +18,7 @@
     <div class="container most_viewed">
       <div class="col-xs-12 col-sm-7">
         <%= image_tag @post_viewed.image.url(:medium), class: "med-image" %>
-        <p>MOST VIEWED POST</p>
+        <h4>MOST VIEWED POST</h4>
         <h2><%= link_to @post_viewed.title, post_path(@post_viewed) %></h2>
         <p><%= truncate(@post_viewed.body) %></p>
       </div>

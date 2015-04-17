@@ -44,6 +44,8 @@
 
   <h1>Comments</h1>
 <div class="comments">
+  <!-- this is a shorthand for the partial -->
+  <%#= render @post.comments %>
   <% @post.comments.sort_created.each do |comment| %>
     <%= render partial: "comments/comments", locals: { c: comment} %>
   <% end %>
