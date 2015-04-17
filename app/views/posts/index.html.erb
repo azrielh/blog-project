@@ -13,7 +13,7 @@
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 
-<!-- This is for the featured post and the recent posts -->
+<!-- This is for the most viewed post -->
   <div class="col-sm-12">
     <div class="container most_viewed">
       <div class="col-xs-12 col-sm-7">
@@ -23,6 +23,7 @@
         <p><%= truncate(@post_viewed.body) %></p>
       </div>
 
+<!-- this is the 5 most recent posts -->
       <div class="col-sm-5 col-xs-12">
         <h3>Posts sorted on tags and recent... </h3>
         <% Category.all.each do |n| %>
@@ -44,7 +45,9 @@
     <% @posts.each do |p| %>
       <div class="col-md-4 col-xs-12 col-sm-6">
         <div class="show_posts">
-          <%= image_tag p.image.url(:medium), class: "medium-image" %>
+          <div class="image-wrapper">
+            <%= image_tag p.image.url(:medium), class: "medium-image" %>
+          </div>
           <div class="post-content">
             <h2><%= link_to p.title, post_path(p) %></h2>
             <p><%= truncate(p.body) %></p>

@@ -26,6 +26,24 @@ body {
   padding-top: 50px;
 }
 
+/*________________________________
+mixins
+_________________________________*/
+
+
+@mixin box-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+@mixin transition {
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
 
 /*________________________________
 fonts
@@ -39,8 +57,11 @@ p.most_viewed {
 
 
 
+/*________________________________
+Colors
+_________________________________*/
 
-
+$red: #DB6161;
 
 
 
@@ -96,16 +117,24 @@ _________________________________*/
 
 .post-content {
   padding: 20px;
+  max-width: 100%;
 }
 
-.medium-image {
-  width: 100%;
-}
 
 .show_posts {
   background-color: #d0d0d0;
   word-wrap: break-word;
-
+  .image-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .medium-image {
+    width: 100%;
+    @include transition;
+    &:hover {
+    	transform: scale(1.075);
+    }
+  }
 }
 
 .each_post {
