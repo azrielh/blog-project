@@ -1,0 +1,7 @@
+  <% favourite = @post.favourites.find_by_user_id(current_user.id) if user_signed_in? %>
+
+  <% if favourite %>
+    <%= link_to fa_icon("star 4x"), [@post, favourite], method: :delete, remote: true %>
+  <% else %>
+    <%= link_to fa_icon("star-o 4x"), post_favourites_path(@post), method: :post, remote: true %>
+  <% end %>

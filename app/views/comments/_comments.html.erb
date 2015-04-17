@@ -1,4 +1,5 @@
 <div id="<%= dom_id(c) %>">
+  <p>There are <%= @post.comments.count %> Comments</p>
   <p><%= c.body %></p><br>
   <p>Created : <%= time_ago_in_words(c.created_at) %> ago</p>
   <p>Created by: <%= c.user.full_name %></p>
