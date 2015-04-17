@@ -2,6 +2,6 @@
 <% if user_signed_in? %>
   <%= simple_form_for @comment, url: [@post, @comment], remote: true, html: {class: "form-horizontal"} do |c| %>
     <p><%= c.input :body, label: false, placeholder: "Add your comments here", class: "form-control" %></p>
-    <%= c.submit "Submit", class: "btn btn-default" %>
+    <%= c.submit "Submit", class: "btn btn-warning" %>
   <% end %>
 <% end %>

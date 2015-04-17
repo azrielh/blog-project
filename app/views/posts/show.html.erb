@@ -1,4 +1,4 @@
-<div class="show_post-individual">
+<div class="show-post col-md-12 container">
 
   <h1 class="post-title"><%= @post.title %></h1>
   <p class="post-date">Submitted <%= time_ago_in_words(@post.created_at) %> ago</p>
@@ -32,19 +32,30 @@
     <%= render partial: "comments/form" %>
   </div>
 
+    <h1>Comments</h1>
+  <div class="comments">
+    <!-- this is a shorthand for the partial -->
+    <%#= render @post.comments %>
+    <% @post.comments.sort_created.each do |comment| %>
+      <%= render partial: "comments/comments", locals: { c: comment} %>
+    <% end %>
+  </div>
+  <!-- What should this paginate???? -->
+  <%#= paginate @post.comments %>
 
-
-
-  <h1>Comments</h1>
-<div class="comments">
-  <!-- this is a shorthand for the partial -->
-  <%#= render @post.comments %>
-  <% @post.comments.sort_created.each do |comment| %>
-    <%= render partial: "comments/comments", locals: { c: comment} %>
-  <% end %>
-</div>
-<!-- What should this paginate???? -->
-<%#= paginate @post.comments %>
-
+  <!-- Modal -->
+  <div class="modal fade" id="edit-comment-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Comments</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

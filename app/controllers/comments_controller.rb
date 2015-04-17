@@ -32,4 +32,25 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find params[:post_id]
+    @comment = Comment.find params[:id]
+  end
+
+  def update
+    @post = Post.find params[:post_id]
+    @comment = Comment.find params[:id]
+    respond_to do |format|
+      if @comment.update params.require(:comment).permit(:body)
+        format.html { redirect_to @post, notice: "Comment updated" }
+        format.js { render :update_success }
+      else
+        format.html { render :edit }
+        format.js { render :update_failure }
+      end
+    end
+
+  end
+
+
 end
