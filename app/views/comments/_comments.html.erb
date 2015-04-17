@@ -1,0 +1,7 @@
+<p><%= c.body %></p><br>
+<p>Created : <%= time_ago_in_words(c.created_at) %> ago</p>
+<p>Created by: <%= c.user.full_name %></p>
+
+  <% if user_signed_in? %>
+  <%= link_to "Delete Comment", post_comment_path(@post, c), method: :delete, data: {confirm: "Are you sure you want to delete this comment?"}, class: "fa fa-trash-o fa-lg btn btn-danger" %></a>
+  <% end %>

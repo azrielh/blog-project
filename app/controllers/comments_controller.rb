@@ -9,12 +9,16 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
 
-    if @comment.save
-      CommentsMailer.notify_post_owner(@comment).deliver_later
-      redirect_to post_path(@post)
-    else
-      #clarify this render: as we are in the comments controller...
-      render 'posts/show'
+    respond_to do |format|
+      if @comment.save
+        CommentsMailer.notify_post_owner(@comment).deliver_later
+        format.html { redirect_to post_path(@post), notice: "Comment Created!" }
+        format.js { render }
+      else
+        #clarify this render: as we are in the comments controller...
+        format.html { render 'posts/show' }
+        format.js { render }
+      end
     end
   end
 
