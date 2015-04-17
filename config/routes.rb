@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   resources :favourites, only: [:index]
 
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+
 
 end

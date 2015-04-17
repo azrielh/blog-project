@@ -20,6 +20,7 @@ gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'cancancan', '~> 1.10'
 gem 'delayed_job_active_record'
 gem "delayed_job_web"
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
