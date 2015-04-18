@@ -22,6 +22,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'delayed_job_active_record'
 gem "delayed_job_web"
 gem 'simple_form'
+gem 'social-share-button'
 
 group :development, :test do
   gem 'byebug'

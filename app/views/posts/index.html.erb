@@ -53,7 +53,14 @@
             <p><%= truncate(p.body) %></p>
             <p><%= p.created_at.strftime("Created on %B, %d, %Y") %></p>
             <p>Created By: <%= p.user.full_name %></p>
-            <p>like count: <%= p.likes.count %></p>
+            <% if p.likes.count > 1 %>
+              <p>Likes: <%= p.likes.count %></p>
+            <% else %>
+              <p>Like: <%= p.likes.count %></p>
+            <% end %>
+            <div class="social-buttons">
+              <%= social_share_button_tag(p.title, :popup => "true") %>
+            </div>
           </div>
         </div>
       </div>

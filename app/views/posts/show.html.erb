@@ -31,6 +31,9 @@
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
     </div>
+    <div class="social-buttons">
+      <%= social_share_button_tag(@post.title, :popup => "true") %>
+    </div>
   </div>
 
   <div class="comment_form">
