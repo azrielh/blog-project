@@ -53,9 +53,11 @@ _________________________________*/
 p.most_viewed {
   color: grey;
   font-size: 14px;
-
 }
 
+h4 {
+  color: grey;
+}
 
 
 /*________________________________
@@ -95,19 +97,53 @@ _________________________________*/
 
 .jumbotron {
   background-color: #000;
+  /* background-image: url("coffee.jpg"); */
+  background-size: cover;
   font-family: "Menlo";
   color: #fff;
-
+  .search-bar {
+    p, i, h2 {
+      display: inline-block;
+    }
+  }
 }
+
+.jumbo-title {
+  border: #fff solid 1px;
+  display: inline-block;
+  padding: 1px 100px;
+}
+
 
 
 /*________________________________
 most viewed / recent posts and tags
 _________________________________*/
 
+.viewed-recent {
+  border-bottom: #000 1px solid;
+}
 
 .most_viewed {
   padding: 15px;
+  background-color: white;
+}
+
+.most_viewed {
+  background-color: #fff;
+  height: 650px;
+  word-wrap: break-word;
+  .image-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .image {
+    width: 100%;
+    @include transition;
+    &:hover {
+    	transform: scale(1.075);
+    }
+  }
 }
 
 
@@ -121,9 +157,13 @@ _________________________________*/
   max-width: 100%;
 }
 
+.outer-container {
+  padding: 15px;
+}
 
 .show_posts {
   background-color: #fff;
+  height: 650px;
   word-wrap: break-word;
   .image-wrapper {
     max-width: 100%;

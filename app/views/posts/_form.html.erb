@@ -1,27 +1,26 @@
-<%= form_for @post do |p| %>
-
-  <% if @post.errors.any? %>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class="container">
+  <%= form_for @post do |p| %>
+    <% if @post.errors.any? %>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     <% end %>
-    </ul>
+
+    <p>
+      <%= p.label :title, "Title" %>
+      <%= p.text_field :title, placeholder: "Add blog title here", class: "form-control" %>
+    </p>
+    <br>
+    <p>
+      <%= p.label :body, "Content" %>
+      <%= p.text_area :body, placeholder: "What do you want to write", class: "form-control" %>
+    </p>
+    <br>
+      <%= p.file_field :image %>
+    <br>
+      <%= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
+      <%= p.submit " Submit", :class => "btn btn-default" %>
   <% end %>
-
-  <p>
-    <%= p.label :title, "Title" %>
-    <%= p.text_field :title, placeholder: "Add blog title here", class: "form-control" %>
-  </p>
-  <br>
-  <p>
-    <%= p.label :body, "Content" %>
-    <%= p.text_area :body, placeholder: "What do you want to write", class: "form-control" %>
-  </p>
-  <br>
-    <%= p.file_field :image %>
-  <br>
-    <%= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
-
-  <%= p.submit " Submit", :class => "btn btn-default" %>
-
-<% end %>
+</div>

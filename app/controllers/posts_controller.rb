@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   def index
     if params[:search]
       # render text: params
-      @posts = Post.search_for(params[:search]).sort_created.page(params[:page]).per(5)
+      @posts = Post.search_for(params[:search]).sort_created.page(params[:page]).per(6)
     else
-      @posts = Post.all.sort_created.page(params[:page]).per(5)
+      @posts = Post.all.sort_created.page(params[:page]).per(6)
     end
       @post_viewed = Post.most_viewed_post
       @posts_recent = Post.recent_five
