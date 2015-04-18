@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
 
   # has_many :tags, dependent: :destroy
   # has_many :categories, through: :tags
+
   acts_as_taggable
 
   has_many :favourites, dependent: :destroy

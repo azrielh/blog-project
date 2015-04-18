@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :users
+  end
+
+  root "posts#index"
+
   devise_for :users
 
   resources :posts do
@@ -10,13 +16,10 @@ Rails.application.routes.draw do
 
   end
 
-  root "posts#index"
-
   resources :favourites, only: [:index]
 
   match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
 
   get 'tags/:tag', to: 'posts#index', as: :tag
-
 
 end

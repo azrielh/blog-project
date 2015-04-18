@@ -1,0 +1,24 @@
+<h1>Admin Section</h1>
+
+<table class="table table-striped">
+  <tr>
+    <td><h3>Name</h3></td>
+    <td><h3>Email</h3></td>
+    <td><h3>Actions</h3></td>
+    <td><h3></h3></td>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.full_name %></td>
+      <td><%= user.email %></td>
+      <td>
+        <% if user.is_admin %>
+          <%= link_to "Make Normal User", admin_user_path(user, user: {is_admin: false}), method: :patch, class: "btn btn-default", data: {confirm: "Are you sure you want to make this user a normal user?"} %>
+        <% else %>
+          <%= link_to "Make Admin", admin_user_path(user, user: {is_admin: true}), method: :patch, class: "btn btn-info", data: {confirm: "Are you sure you want to make this user an admin?"} %>
+        <% end %>
+      </td>
+      <td><%= link_to "Delete User", admin_user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, class: "btn btn-warning" %></td>
+    </tr>
+  <% end %>
+</table>
