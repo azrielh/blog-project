@@ -9,8 +9,9 @@ class Post < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
-  has_many :tags, dependent: :destroy
-  has_many :categories, through: :tags
+  # has_many :tags, dependent: :destroy
+  # has_many :categories, through: :tags
+  acts_as_taggable
 
   has_many :favourites, dependent: :destroy
   has_many :users_who_favourite, through: :favourites, source: :user

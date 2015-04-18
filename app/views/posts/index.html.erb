@@ -22,10 +22,13 @@
 
 <!-- this is the 5 most recent posts -->
       <div class="col-sm-5 col-xs-12">
+        <h3>Search posts by tags</h3>
+        <div id="tag_cloud">
+          <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+          <p class="fa fa-tag btn btn-warning"> <%= link_to tag.name, tag_path(tag.name), class: css_class %></p>
+          <% end %>
+        </div>
         <h3>Most recent posts</h3>
-        <% Category.all.each do |n| %>
-          <p class="fa fa-tag btn btn-warning"> <%= n.name %></p>
-        <% end %>
         <ul>
           <% @posts_recent.each do |r| %>
             <li><h3><%= link_to r.title, post_path(r) %></h3>
@@ -59,7 +62,7 @@
 
   <!-- kaminari -->
   <div class="container">
-    <h1><%= paginate @posts %></h1>
+    <h1><%#= paginate @posts %></h1>
   </div>
 </div>
 

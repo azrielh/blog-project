@@ -20,7 +20,9 @@
     <br>
       <%= p.file_field :image %>
     <br>
-      <%= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
+      <%= p.label :tag_list, "Tags (separated by commas)" %><br />
+      <%= p.text_field :tag_list %>
+      <%#= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
       <%= p.submit " Submit", :class => "btn btn-default" %>
   <% end %>
 </div>

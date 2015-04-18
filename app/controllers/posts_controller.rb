@@ -7,11 +7,13 @@ class PostsController < ApplicationController
     if params[:search]
       # render text: params
       @posts = Post.search_for(params[:search]).sort_created.page(params[:page]).per(6)
+    elsif params[:tag]
+      @posts = Post.tagged_with(params[:tag])
     else
       @posts = Post.all.sort_created.page(params[:page]).per(6)
     end
-      @post_viewed = Post.most_viewed_post
-      @posts_recent = Post.recent_five
+    @post_viewed = Post.most_viewed_post
+    @posts_recent = Post.recent_five
   end
 
   def new
@@ -63,6 +65,6 @@ private
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, { category_ids: [] })
+    params.require(:post).permit(:title, :body, :image, :tag_list, { category_ids: [] })
   end
 end

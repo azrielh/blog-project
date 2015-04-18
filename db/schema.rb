@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417002457) do
+ActiveRecord::Schema.define(version: 20150418163756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20150417002457) do
   add_index "favourites", ["post_id"], name: "index_favourites_on_post_id", using: :btree
   add_index "favourites", ["user_id"], name: "index_favourites_on_user_id", using: :btree
 
+  create_table "labels", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "post_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "labels", ["category_id"], name: "index_labels_on_category_id", using: :btree
+  add_index "labels", ["post_id"], name: "index_labels_on_post_id", using: :btree
+
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -84,15 +94,25 @@ ActiveRecord::Schema.define(version: 20150417002457) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-  create_table "tags", force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "post_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
   end
 
-  add_index "tags", ["category_id"], name: "index_tags_on_category_id", using: :btree
-  add_index "tags", ["post_id"], name: "index_tags_on_post_id", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -119,9 +139,9 @@ ActiveRecord::Schema.define(version: 20150417002457) do
   add_foreign_key "comments", "users"
   add_foreign_key "favourites", "posts"
   add_foreign_key "favourites", "users"
+  add_foreign_key "labels", "categories"
+  add_foreign_key "labels", "posts"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "tags", "categories"
-  add_foreign_key "tags", "posts"
 end
