@@ -197,10 +197,12 @@ _________________________________*/
 
 #tag_cloud {
   line-height: 1em;
-  color: #fff;
   .s { font-size: 0.6em; }
   .m { font-size: 1.0em; }
   .l { font-size: 1.4em; }
+  a {
+    color: #fff;
+  }
 }
 
  /*________________________________

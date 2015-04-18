@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       # render text: params
       @posts = Post.search_for(params[:search]).sort_created.page(params[:page]).per(6)
     elsif params[:tag]
-      @posts = Post.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag]).sort_created.page(params[:page]).per(6)
     else
       @posts = Post.all.sort_created.page(params[:page]).per(6)
     end
