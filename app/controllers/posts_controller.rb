@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -33,6 +33,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find params[:id]
     @comment = Comment.new
     # need to create a method in the model for like_for and favourite_for
     # @favourite = @post.favourite_for(current_user) if user_signed_in?
@@ -62,6 +63,7 @@ private
 
   def find_post
     @post = Post.find params[:id]
+    redirect_to root_path, alert: "Access Denied" unless can? :manage, @post
   end
 
   def post_params

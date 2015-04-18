@@ -133,6 +133,7 @@ _________________________________*/
   background-color: #fff;
   height: 650px;
   word-wrap: break-word;
+  @include box-shadow;
   .image-wrapper {
     max-width: 100%;
     overflow: hidden;
@@ -165,6 +166,7 @@ _________________________________*/
   background-color: #fff;
   height: 650px;
   word-wrap: break-word;
+  @include box-shadow;
   .image-wrapper {
     max-width: 100%;
     overflow: hidden;

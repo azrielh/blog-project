@@ -18,9 +18,12 @@
       <div class="like">
         <%= render partial: "/likes/like" %>
       </div>
-
-      <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-default" %> |
-      <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, class: "btn btn-default" %>
+      <% if can? :edit, @post %>
+        <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-default" %> |
+      <% end %>
+      <% if can? :destroy, @post %>
+        <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, class: "btn btn-default" %>
+      <% end %>
     <% end %>
 
     <div id="tag_cloud">
@@ -28,13 +31,6 @@
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
     </div>
-    ...
-    <!-- Tags: <%#= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> -->
-
-
-    <%# @post.categories.each do |n| %>
-      <!-- <p class="fa fa-tag btn btn-warning"> <%#= n.name %></p> -->
-    <%# end %>
   </div>
 
   <div class="comment_form">
