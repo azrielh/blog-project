@@ -1,28 +1,10 @@
 <div class="container">
-  <%= form_for @post do |p| %>
-    <% if @post.errors.any? %>
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    <% end %>
-
-    <p>
-      <%= p.label :title, "Title" %>
-      <%= p.text_field :title, placeholder: "Add blog title here", class: "form-control" %>
-    </p>
-    <br>
-    <p>
-      <%= p.label :body, "Content" %>
-      <%= p.text_area :body, placeholder: "What do you want to write", class: "form-control" %>
-    </p>
-    <br>
-      <%= p.file_field :image %>
-    <br>
-      <%= p.label :tag_list, "Tags (separated by commas)" %><br />
-      <%= p.text_field :tag_list %>
+  <%= simple_form_for @post do |p| %>
+      <%= p.input :title, label: "Blog Title", placeholder: "Add blog title here" %>
+      <%= p.input :body, placeholder: "What do you want to write" %>
+      <%= p.input :image %>
+      <%= p.input :tag_list, placeholder: "Tags (separated by commas)" %>
       <%#= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
-      <%= p.submit " Submit", :class => "btn btn-default" %>
+      <%= p.button :submit, :class => "btn btn-default" %>
   <% end %>
 </div>

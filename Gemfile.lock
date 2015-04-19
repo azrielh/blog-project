@@ -47,6 +47,9 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -229,6 +232,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   awesome_print
+  bootstrap-kaminari-views
   bootstrap-sass
   byebug
   cancancan (~> 1.10)
