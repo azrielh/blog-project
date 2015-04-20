@@ -4,13 +4,13 @@
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i>
+        <span class="input-group-addon"><i class="fa fa-envelope-o"></i>
         <%= f.input :email, class: "form-control", autofocus: true %></span>
       </div>
 
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i>
-        <%= f.input :password, class: "form-control", autocomplete: "off" %></span>
+        <div class="input-group-addon"><i class="fa fa-key"></i>
+        <%= f.input :password, class: "form-control", autocomplete: "off" %></div>
       </div>
 
       <% if devise_mapping.rememberable? -%>
