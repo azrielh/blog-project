@@ -1,6 +1,4 @@
 <div class="container">
-  <h1>Here are all your favourite posts</h1>
-
   <% @favourite_posts.each do |p| %>
     <div class="col-md-4 col-xs-12 col-sm-6 outer-container">
       <div class="show_posts">
@@ -8,15 +6,27 @@
           <%= image_tag p.image.url(:medium), class: "medium-image" %>
         </div>
         <div class="post-content">
-          <h2><%= link_to p.title, post_path(p) %></h2>
-          <p><%= truncate(p.body) %></p>
-          <p><%= p.created_at.strftime("Created on %B, %d, %Y") %></p>
-          <p>Created By: <%= p.user.full_name %></p>
-          <p>like count: <%= p.likes.count %></p>
+          <h2><%= link_to p.title.truncate(50), post_path(p) %></h2>
+          <p><%= p.body.truncate(150, omission: '...(continued)') %></p>
+          <div class="created-text">
+            <p>Created By: <%= p.user.full_name %></p>
+            <p><%= p.created_at.strftime("%B, %d, %Y") %></p>
+          </div>
+          <div class="like-buttons">
+            <% if p.likes.count > 1 %>
+              <p>Likes: <%= p.likes.count %></p>
+            <% else %>
+              <p>Like: <%= p.likes.count %></p>
+            <% end %>
+          </div>
         </div>
+          <div class="social-buttons">
+            <%= social_share_button_tag(p.title, :popup => "true") %>
+          </div>
       </div>
     </div>
   <% end %>
+</div>
 
   <div class="pagination">
     <h2><%= paginate @favourite_posts %></h2>

@@ -96,10 +96,8 @@ $blue: #2f4ca6;
 fonts
 _________________________________*/
 
-/* $font1: 'Inconsolata', "Menlo", sans-serif; */
 $font1: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font2: 'Lobster', "Helvetica Neue", Helvetica, Arial, sans-serif;
-/* $font3: 'Roboto', sans-serif; */
 $font3: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font4: Georgia, Arial, sans-serif;
 $font5: 'Raleway', Helvetica, Arial, sans-serif;
@@ -120,8 +118,6 @@ h4 {
   color: grey;
 }
 
-
-
 /*________________________________
 images
 _________________________________*/
@@ -137,8 +133,9 @@ _________________________________*/
 .navbar {
   background-color: #000;
   h3 {
-    font: 18px $font3;
+    font: 14px $font3;
     color: #d9d9d9;
+    margin-top: 17px;
   }
   i {
     font-size: 25px;

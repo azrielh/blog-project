@@ -1,10 +1,10 @@
-<div class="container">
+<div class="new-post-form">
   <%= simple_form_for @post do |p| %>
       <%= p.input :title, label: "Blog Title", placeholder: "Add blog title here" %>
-      <%= p.input :body, placeholder: "What do you want to write" %>
+      <%= p.input :body, label: "Blog Content", placeholder: "Add your insightful blog here", input_html: {:rows => 12}  %>
       <%= p.input :image %>
       <%= p.input :tag_list, placeholder: "Tags (separated by commas)" %>
       <%#= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
-      <%= p.button :submit, :class => "btn btn-default" %>
+      <%= p.button :submit, :class => "btn btn-info" %>
   <% end %>
 </div>
