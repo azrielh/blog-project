@@ -35,9 +35,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find params[:id]
     @comment = Comment.new
-    # need to create a method in the model for like_for and favourite_for
-    # @favourite = @post.favourite_for(current_user) if user_signed_in?
-    # @like      = @post.like_for(current_user)      if user_signed_in?
     @post.increment_view_count
   end
 
@@ -67,6 +64,6 @@ private
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_list, { category_ids: [] })
+    params.require(:post).permit(:title, :body, :image, :tag_list)
   end
 end

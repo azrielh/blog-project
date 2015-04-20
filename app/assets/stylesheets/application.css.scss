@@ -204,7 +204,7 @@ _________________________________*/
 
 .most_viewed {
   background-color: #e4e4e4;
-  height: 800px;
+  height: 895px;
   word-wrap: break-word;
   overflow: hidden;
   @include box-shadow;
@@ -240,7 +240,6 @@ _________________________________*/
     text-align: center;
     &:hover {
       color: $blue;
-
     }
   }
 }
@@ -248,6 +247,9 @@ _________________________________*/
 .recent-posts {
   background-color: $post-color;
   padding: 10px 20px 20px 20px;
+  li {
+    border-bottom: grey 1px solid;
+  }
   .post-header {
     h3, a {
       font-weight: 200;
@@ -362,17 +364,20 @@ _________________________________*/
   .like-buttons {
     p {
       font-family: $font1;
-      color: red;
+      color: $yellow;
       font-weight: 300;
     }
-  }
-  .social-buttons {
-    margin: auto;
   }
 }
 
 .each_post {
   padding: 30px;
+}
+
+.social-buttons {
+  width: 140px;
+  margin: auto;
+  float: bottom;
 }
 
 
