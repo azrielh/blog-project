@@ -108,14 +108,23 @@ p {
   color: $white;
 }
 
-h2 {
+h1, h2, h3 {
   font-family: $font3;
   font-size: 26px;
+  color: $white;
 }
 
+label, em {
+  color: $white;
+}
 
 h4 {
   color: grey;
+}
+
+td {
+  color: $white;
+  font-size: 24px;
 }
 
 /*________________________________
@@ -361,7 +370,7 @@ _________________________________*/
   .like-buttons {
     p {
       font-family: $font1;
-      color: $yellow;
+      color: $blue;
       font-weight: 300;
     }
   }
@@ -386,4 +395,34 @@ _________________________________*/
 .show-post {
   width: 100vw;
   margin: 0 auto;
+}
+
+/*________________________________
+Devise
+_________________________________*/
+
+.log-in {
+  padding: 30px;
+  height: 500px;
+  .inner-login {
+    margin: 0 auto;
+    width: 50%;
+    background-color: black;
+    i {
+      font-size: 30px;
+    }
+    h1 {
+      font-size: 30px;
+      color: $white;
+    }
+  }
+}
+
+.sign-up-outer {
+
+  .signup {
+    margin: 0 auto;
+    width: 50%;
+    height: 600px;
+  }
 }
