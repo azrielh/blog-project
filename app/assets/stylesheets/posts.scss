@@ -108,10 +108,47 @@ _________________________________*/
   }
 }
 
+
 /*________________________________
 Comments
 _________________________________*/
 
-.comment-form {
-  height: 200px;
+.outside-comment-form {
+  margin: 30px;
+}
+
+.all-comments {
+  padding: 20px;
+  h1 {
+    color: $white;
+    font-size: 36px;
+  }
+  .each-comment {
+    margin: 20px;
+    padding: 20px;
+    background-color: $post-color2;
+    border-radius: 15px;
+    @include box-shadow;
+    p {
+      font-family: $font5;
+    }
+    .comment-create {
+      p {
+        font-size: 16px;
+        line-height: 8px;
+        color: grey;
+        margin-bottom: 15px;
+      }
+    }
+    .comment-change {
+      a {
+        font-size: 20px;
+        color: $yellow;
+        text-decoration: none;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
 }
