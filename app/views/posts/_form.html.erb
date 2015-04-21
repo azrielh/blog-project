@@ -1,13 +1,10 @@
-<%= form_for @post do |p| %>
-  <p>
-    <%= p.label :title %>
-    <%= p.text_field :title %>
-  </p>
-  <br>
-    <p>
-      <%= p.label :body %>
-      <%= p.text_field :body %>
-    </p>
-  <br>
-  <%= p.submit %>
-<% end %>
+<div class="new-post-form">
+  <%= simple_form_for @post do |p| %>
+      <%= p.input :title, label: "Blog Title", placeholder: "Add blog title here" %>
+      <%= p.input :body, label: "Blog Content", placeholder: "Add your insightful blog here", input_html: {:rows => 12}  %>
+      <%= p.input :image %>
+      <%= p.input :tag_list, placeholder: "Tags (separated by commas)" %>
+      <%#= p.collection_check_boxes :category_ids, Category.order("name"), :id, :name %>
+      <%= p.button :submit, :class => "btn btn-info" %>
+  <% end %>
+</div>

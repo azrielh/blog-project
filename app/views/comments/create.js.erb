@@ -1,0 +1,10 @@
+<% if @comment.errors.any? %>
+  $(".comment_form").html("<%= j render "/comments/form" %>");
+<% else %>
+  $(".comments").prepend("<%= j render partial: "/comments/comments", locals: {c: @comment} %>");
+  $("#comment_body").val("");
+
+  <% @comment = Comment.new %>
+  $(".comment_form").html("<%= j render "/comments/form" %>");
+
+<% end %>

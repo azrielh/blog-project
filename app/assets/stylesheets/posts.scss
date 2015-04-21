@@ -1,3 +1,174 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*________________________________
+Colors
+_________________________________*/
+
+$red: #DB6161;
+$post-color: #222326;
+$post-color2: #2c2e31;
+$white: #e4e4e4;
+$yellow: #ccc840;
+$blue: #2f4ca6;
+
+/*________________________________
+Fonts
+_________________________________*/
+
+$font3: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font5: 'Raleway', Helvetica, Arial, sans-serif;
+
+/*________________________________
+Mixins
+_________________________________*/
+
+
+@mixin box-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 4px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 4px 0;
+  box-shadow: rgba(151, 151, 151, 0.91) 0 4px 0;
+}
+
+@mixin text-shadow3 {
+  text-shadow: 1px 2px 0px #fff, 4px 4px 0px rgba(0,0,0,0.15);
+}
+
+/*________________________________
+Show Post Content
+_________________________________*/
+
+.content-padding {
+  padding: 40px 0;
+}
+
+.show-post-content {
+  background-color: $white;
+  padding: 20px;
+  @include box-shadow;
+  border-radius: 55px;
+  .post-body {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+  }
+  p {
+    color: #685d5d;
+    font-size: 16px;
+    font-family: $font5;
+    padding: 10px 25px 25px 25px;
+  }
+  h1 {
+    font-family: $font3;
+    font-size: 45px;
+    line-height: 43px;
+    color: black;
+    padding: 10px 25px 15px 25px;
+    @include text-shadow3;
+    text-align: center;
+  }
+  .likes-and-favs {
+    a {
+      display: inline;
+      font-family: $font3;
+      font-size: 14px;
+      color: black;
+      padding: 10px 25px 15px 25px;
+      @include text-shadow3;
+      text-decoration: none;
+      text-align: center;
+    }
+  }
+}
+
+.post-image {
+  width: 100vw;
+  max-height: 750px;
+}
+
+#tag_cloud2 {
+  line-height: 1em;
+  .s { font-size: 1.4em; color: #acb648 }
+  .m { font-size: 1.7em; color: #d2782e }
+  .l { font-size: 2.1em; color: #d42e2e }
+  margin: 20px;
+  display: inline-block;
+  a {
+    color: black;
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+
+/*________________________________
+Comments
+_________________________________*/
+
+.outside-comment-form {
+  margin: 30px;
+}
+
+.all-comments {
+  padding: 20px;
+  h1 {
+    color: $white;
+    font-size: 36px;
+  }
+  span {
+    font-size: 18px;
+  }
+  .each-comment {
+    margin: 20px;
+    padding: 20px;
+    background-color: $post-color2;
+    border-radius: 15px;
+    @include box-shadow;
+    p {
+      font-family: $font5;
+    }
+    .comment-create {
+      p {
+        font-size: 16px;
+        line-height: 8px;
+        color: grey;
+        margin-bottom: 15px;
+      }
+    }
+    .comment-change {
+      a {
+        font-size: 20px;
+        color: $yellow;
+        text-decoration: none;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+}
+
+/*________________________________
+New Post Form
+_________________________________*/
+
+.new-post {
+  h1 {
+    color: $white;
+    font-size: 35px;
+  }
+  padding: 20px 30px 30px 30px;
+  background-color: $post-color2;
+  border-radius: 15px;
+  @include box-shadow;
+  .new-post-form {
+    label {
+      color: $white;
+      font-family: $font3;
+      font-size: 16px;
+
+    }
+  }
+}

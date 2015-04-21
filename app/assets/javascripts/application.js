@@ -12,5 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require social-share-button
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+  $('.search-container').hide();
+  $('.search-btn').click(function() {
+    $('.search-container').slideToggle();
+  });
+
+});

@@ -1,0 +1,428 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require font-awesome
+ *= require social-share-button
+ *= require_tree .
+ *= require_self
+ */
+
+ @import 'normalize';
+
+ /* Standard boilerplate to use border-box */
+html {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 50px;
+  /* background-color: #f0f0f0; */
+  background-color: #000;
+}
+
+/*________________________________
+mixins
+_________________________________*/
+
+
+@mixin box-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 4px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 4px 0;
+  box-shadow: rgba(151, 151, 151, 0.91) 0 4px 0;
+}
+
+@mixin transition {
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+@mixin text-shadow {
+  text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+               0px 24px 2px rgba(0,0,0,0.1),
+               0px 34px 30px rgba(0,0,0,0.1);
+}
+
+@mixin text-shadow2 {
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+@mixin text-shadow3 {
+  text-shadow: 1px 2px 0px #fff, 4px 4px 0px rgba(0,0,0,0.15);
+}
+
+@mixin text-shadow4 {
+  text-shadow: 0px 3px 0px #b2a98f,
+               0px 4px 2px rgba(0,0,0,0.15),
+               0px 6px 6px rgba(0,0,0,0.1),
+               0px 10px 10px rgba(0,0,0,0.1);
+}
+
+/*________________________________
+Colors
+_________________________________*/
+
+$red: #DB6161;
+$post-color: #222326;
+$post-color2: #2c2e31;
+$white: #e4e4e4;
+$yellow: #ccc840;
+$blue: #2f4ca6;
+
+
+/*________________________________
+fonts
+_________________________________*/
+
+$font1: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font2: 'Lobster', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font3: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font4: Georgia, Arial, sans-serif;
+$font5: 'Raleway', Helvetica, Arial, sans-serif;
+
+p {
+  font-family: $font1;
+  font-size: 20px;
+  color: $white;
+}
+
+h1, h2, h3 {
+  font-family: $font3;
+  font-size: 26px;
+  color: $white;
+}
+
+label, em {
+  color: $white;
+}
+
+h4 {
+  color: grey;
+}
+
+td {
+  color: $white;
+  font-size: 24px;
+}
+
+/*________________________________
+images
+_________________________________*/
+
+.fa-tag {
+  margin: 5px;
+}
+
+/*________________________________
+navigation bar
+_________________________________*/
+
+.navbar {
+  background-color: #000;
+  h3 {
+    font: 14px $font3;
+    color: #d9d9d9;
+    margin-top: 17px;
+  }
+  i {
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    margin-top: 12px;
+  }
+}
+
+
+/*________________________________
+jumbotron
+_________________________________*/
+
+.jumbotron {
+  background-color: #000;
+  background-image: url("kitchen.jpg");
+  background-repeat: no-repeat;
+  padding: 0 auto;
+  /* background-size: cover; */
+
+  height: 600px;
+  overflow: visible;
+  h1 {
+    @include text-shadow;
+    font-family: $font2;
+    font-size: 100px;
+    color: #fff;
+  }
+  p {
+    color: #fff;
+  }
+}
+
+
+.jumbo-title {
+  border: #fff solid 1px;
+  display: inline-block;
+  padding: 1px 150px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+
+
+/*________________________________
+most viewed / recent posts and tags
+_________________________________*/
+
+.mini-search {
+  padding: 20px;
+  i {
+    color: $white;
+  }
+  h2 {
+    font-size: 14px;
+  }
+}
+
+.viewed-recent {
+  border-bottom: #494949 1px dotted;
+  padding-bottom: 15px;
+}
+
+.most_viewed {
+  background-color: #e4e4e4;
+  height: 895px;
+  word-wrap: break-word;
+  overflow: hidden;
+  @include box-shadow;
+  .image-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .image {
+    width: 100%;
+    @include transition;
+    &:hover {
+    	transform: scale(1.075);
+    }
+  }
+  p {
+    color: grey;
+    font-size: 14px;
+    font-family: $font5;
+    padding: 10px 25px 25px 25px;
+    /* line-height: 18px; */
+  }
+  .most-viewed-post {
+    padding: 20px;
+  }
+  h2, a {
+    font-family: $font3;
+    font-size: 45px;
+    line-height: 43px;
+    color: black;
+    padding: 10px 25px 15px 25px;
+    @include text-shadow3;
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.recent-posts {
+  background-color: $post-color;
+  padding: 10px 20px 20px 20px;
+  li {
+    border-bottom: grey 1px solid;
+  }
+  .post-header {
+    h3, a {
+      font-weight: 200;
+      text-decoration: none;
+      font-family: $font3;
+      color: $white;
+      font-size: 24px;
+      letter-spacing: 1px;
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+  p {
+    color: grey;
+    font-size: 18px;
+    font-family: $font5;
+    line-height: 20px;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+  .created-text {
+    p {
+      font-size: 12px;
+      color: $white;
+      line-height: 8px;
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+#tag_cloud {
+  line-height: 1em;
+  .s { font-size: 1.0em; }
+  .m { font-size: 1.5em; }
+  .l { font-size: 2.0em; }
+  margin: 20px;
+  a {
+    color: $white;
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+/*________________________________
+index posts content
+_________________________________*/
+
+.outer-container {
+  padding: 15px;
+}
+
+.show_posts:nth-child(odd) {
+  background-color: $post-color;
+}
+
+.show_post:nth-child(even) {
+  background-color: $post-color2;
+}
+
+.show_posts {
+  height: 700px;
+  word-wrap: break-word;
+  @include box-shadow;
+  .post-content {
+    padding: 20px;
+    max-width: 100%;
+    h3, a {
+      font-weight: 200;
+      text-decoration: none;
+      font-family: $font3;
+      color: $white;
+      font-size: 24px;
+      letter-spacing: 1px;
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+  p {
+    color: grey;
+    font-size: 18px;
+    font-family: $font5;
+    line-height: 20px;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+  .created-text {
+    p {
+      font-size: 12px;
+      color: $white;
+      line-height: 8px;
+    }
+  }
+  .image-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .medium-image {
+    width: 100%;
+    @include transition;
+    &:hover {
+    	transform: scale(1.075);
+    }
+  }
+  .like-buttons {
+    p {
+      font-family: $font1;
+      color: $blue;
+      font-weight: 300;
+    }
+  }
+}
+
+.each_post {
+  padding: 30px;
+}
+
+.social-buttons {
+  width: 140px;
+  margin: auto;
+  float: bottom;
+}
+
+
+
+/*________________________________
+show post page
+_________________________________*/
+
+.show-post {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+/*________________________________
+Devise
+_________________________________*/
+
+.log-in {
+  padding: 30px;
+  height: 500px;
+  .inner-login {
+    margin: 0 auto;
+    width: 50%;
+    background-color: black;
+    i {
+      font-size: 30px;
+    }
+    h1 {
+      font-size: 30px;
+      color: $white;
+    }
+  }
+}
+
+.sign-up-outer {
+
+  .signup {
+    margin: 0 auto;
+    width: 50%;
+    height: 600px;
+  }
+}
