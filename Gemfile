@@ -24,6 +24,7 @@ gem 'delayed_job_active_record'
 gem "delayed_job_web"
 gem 'simple_form'
 gem 'social-share-button'
+gem "rails_12factor", group: :production
 
 group :development, :test do
   gem 'byebug'
