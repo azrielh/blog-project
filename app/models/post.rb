@@ -9,9 +9,6 @@ class Post < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
-  # has_many :tags, dependent: :destroy
-  # has_many :categories, through: :tags
-
   acts_as_taggable
 
   has_many :favourites, dependent: :destroy
@@ -19,8 +16,10 @@ class Post < ActiveRecord::Base
 
   after_initialize :default_count
 
-  has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => ":style/coffee.jpg"
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  mount_uploader :image, ImageUploader
+
+  # has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => ":style/coffee.jpg"
+  # validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def self.search_for(find)
     where("title ILIKE ? OR body ILIKE ?", "%#{find}%", "%#{find}%")

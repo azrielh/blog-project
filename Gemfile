@@ -13,17 +13,26 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'simple_form'
+
 gem 'devise'
-gem 'bootstrap-sass'
-gem 'haml', '~> 4.0.6'
-gem 'paperclip', '~> 4.2.1'
-gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'cancancan', '~> 1.10'
+
+gem 'bootstrap-sass'
+# gem 'haml', '~> 4.0.6'
+
+# gem 'paperclip', '~> 4.2.1'
+gem "fog"
+gem 'carrierwave'
+gem "mini_magick"
+
+gem 'social-share-button'
+gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'acts-as-taggable-on', '~> 3.4'
+
 gem 'delayed_job_active_record'
 gem "delayed_job_web"
-gem 'simple_form'
-gem 'social-share-button'
+
 gem "rails_12factor", group: :production
 
 group :development, :test do
