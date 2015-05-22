@@ -77,8 +77,10 @@
             <h2><%= link_to p.title.truncate(50), post_path(p) %></h2>
             <p><%= p.body.truncate(150, omission: '...(continued)') %></p>
             <div class="created-text">
-              <p>Created By: <%= p.user.full_name %></p>
-              <p><%= p.created_at.strftime("%B, %d, %Y") %></p>
+              <% if r.user present? %>
+                <p>Created By: <%= p.user.full_name %></p>
+                <p><%= p.created_at.strftime("%B, %d, %Y") %></p>
+              <% end %>
             </div>
             <div class="like-buttons">
               <% if p.likes.count > 1 %>
