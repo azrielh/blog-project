@@ -45,15 +45,17 @@
         <div class="recent-posts">
           <h4>RECENT POSTS</h4>
           <ul>
-            <% @posts_recent.each do |r| %>
-              <li>
-                <h3 class="post-header"><%= link_to r.title, post_path(r) %></h3>
-                <p><%= r.body.truncate(100) %></p>
-                <div class="created-text">
-                  <p>Created By: <%= r.user.full_name %></p>
-                  <p><%= r.created_at.strftime("%B, %d, %Y") %></p>
-                </div>
-              </li>
+            <% if @post_recent.present? %>
+              <% @posts_recent.each do |r| %>
+                <li>
+                  <h3 class="post-header"><%= link_to r.title, post_path(r) %></h3>
+                  <p><%= r.body.truncate(100) %></p>
+                  <div class="created-text">
+                    <p>Created By: <%= r.user.full_name %></p>
+                    <p><%= r.created_at.strftime("%B, %d, %Y") %></p>
+                  </div>
+                </li>
+              <% end %>
             <% end %>
           </ul>
         </div>
