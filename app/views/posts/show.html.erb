@@ -15,6 +15,16 @@
           <div class="like">
             <%= render partial: "/likes/like" %>
           </div>
+          <% else %>
+          <div class="hidden-div">
+            <div class="favourite">
+              <%= render partial: "/favourites/favourite" %>
+            </div>
+          <!-- render the like partial -->
+            <div class="like">
+              <%= render partial: "/likes/like" %>
+          </div>
+        </div>
       <% end %>
       </div>
       </br>
