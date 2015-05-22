@@ -51,8 +51,10 @@
                   <h3 class="post-header"><%= link_to r.title, post_path(r) %></h3>
                   <p><%= r.body.truncate(100) %></p>
                   <div class="created-text">
-                    <p>Created By: <%= r.user.full_name %></p>
-                    <p><%= r.created_at.strftime("%B, %d, %Y") %></p>
+                    <% if r.user present? %>
+                      <p>Created By: <%= r.user.full_name %></p>
+                      <p><%= r.created_at.strftime("%B, %d, %Y") %></p>
+                    <% end %>
                   </div>
                 </li>
               <% end %>
