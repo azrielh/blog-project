@@ -26,7 +26,9 @@
           <div class="most-viewed-post">
             <h4>MOST VIEWED POST</h4>
             <h2><%= link_to @post_viewed.title, post_path(@post_viewed) %></h2>
-            <p><%= @post_viewed.body.truncate(600, omission: '...(continued)') %></p>
+            <div id="post-body">
+              <%= raw markdown.render(@post_viewed.body.truncate(600, omission: '...(continued)')) %>
+            </div>
           </div>
         </div>
       </div>
@@ -48,7 +50,9 @@
             <% @posts_recent.each do |r| %>
               <li>
                 <h3 class="post-header"><%= link_to r.title, post_path(r) %></h3>
-                <p><%= r.body.truncate(100) %></p>
+                <div id="post-body-recent">
+                  <%= raw markdown.render(r.body.truncate(100)) %>
+                </div>
                 <div class="created-text">
                   <% if r.user present? %>
                     <p>Created By: <%= r.user.full_name %></p>
@@ -69,11 +73,15 @@
       <div class="col-md-4 col-xs-12 col-sm-6 outer-container">
         <div class="show_posts">
           <div class="image-wrapper">
-            <%= image_tag p.image.url(:medium), class: "medium-image" %>
+            <% if p.image.present? %>
+              <%= image_tag p.image.url(:medium), class: "medium-image" %>
+            <% end %>
           </div>
           <div class="post-content">
             <h2><%= link_to p.title.truncate(50), post_path(p) %></h2>
-            <p><%= p.body.truncate(150, omission: '...(continued)') %></p>
+            <div id="post-body-each">
+              <%= raw markdown.render(p.body.truncate(150, omission: '...(continued)')) %>
+            </div>
             <div class="created-text">
               <% if p.user present? %>
                 <p>Created By: <%= p.user.full_name %></p>

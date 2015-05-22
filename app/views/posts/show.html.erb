@@ -21,8 +21,9 @@
     </div>
 
     <p>Submitted <%= time_ago_in_words(@post.created_at) %> ago</p>
-
-    <p class="post-body"><%= @post.body %></br></p>
+    <div id="post-body">
+      <%= raw markdown.render(@post.body) %></br>
+    </div>
     <p>Created By: <%= @post.user.full_name %></p>
 
     <div class="edit-buttons">

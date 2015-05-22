@@ -48,15 +48,10 @@ _________________________________*/
   padding: 20px;
   @include box-shadow;
   border-radius: 55px;
-  .post-body {
-    border-top: 1px black solid;
-    border-bottom: 1px black solid;
-  }
   p {
     color: #685d5d;
     font-size: 16px;
     font-family: $font5;
-    padding: 10px 25px 25px 25px;
   }
   h1 {
     font-family: $font3;
@@ -81,9 +76,91 @@ _________________________________*/
   }
 }
 
+#post-body {
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  font: $font3;
+  em {
+    color: black;
+    padding: none;
+  }
+  h1 {
+    font-size: 22px;
+    color: black;
+    text-align: left;
+    text-shadow: none;
+  }
+  h2 {
+    font-size: 18px;
+    color: black;
+    text-align: left;
+    padding: 0px 15px 0px 25px;
+  }
+  p {
+    font-size: 14px;
+    color: black;
+    padding: 10px 15px 0px 25px;
+  }
+}
+#post-body-recent {
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  font: $font3;
+  em {
+    color: #fff;
+    padding: none;
+  }
+  h1 {
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+    text-shadow: none;
+    padding: none;
+  }
+  h2 {
+    font-size: 12px;
+    color: #fff;
+    text-align: left;
+    padding: 0px 25px 0px 0px;
+  }
+  p {
+    font-size: 12px;
+    color: #fff;
+    padding: none;
+  }
+}
+#post-body-each {
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  font: $font3;
+  em {
+    color: #fff;
+    padding: none;
+  }
+  h1 {
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+    text-shadow: none;
+    padding: none;
+  }
+  h2 {
+    font-size: 12px;
+    color: #fff;
+    text-align: left;
+    padding: 0px 25px 0px 0px;
+  }
+  p {
+    font-size: 12px;
+    color: #fff;
+    padding: none;
+  }
+}
+
 .post-image {
   width: 100vw;
   max-height: 750px;
+  overflow: hidden;
 }
 
 #tag_cloud2 {

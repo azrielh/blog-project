@@ -1,7 +1,7 @@
 <div class="new-post-form">
   <%= simple_form_for @post do |p| %>
       <%= p.input :title, label: "Blog Title", placeholder: "Add blog title here" %>
-      <%= p.input :body, label: "Blog Content", placeholder: "Add your insightful blog here", input_html: {:rows => 12}  %>
+      <%= p.input :body, label: "Blog Content", placeholder: "Add your insightful blog here, can be written in markdown!", input_html: {:rows => 12}  %>
       <%= p.input :image, class: "form-control" %>
       <%= p.input :tag_list, placeholder: "Tags (separated by commas)" %>
       <%= p.button :submit, :class => "btn btn-info" %>
