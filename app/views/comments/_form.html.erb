@@ -1,4 +1,3 @@
-<%#= simple_form_for @comment, url: post_comments_path(@post), remote: true, html: {class: "form-horizontal"} do |c| %>
 <% if user_signed_in? %>
   <%= simple_form_for @comment, url: [@post, @comment], remote: true, html: {class: "form-horizontal"} do |c| %>
     <%= c.input :body, label: false, placeholder: "Add your comments here", class: "form-control", :input_html => {:rows => 8} %>

@@ -48,18 +48,18 @@
           <h4>RECENT POSTS</h4>
           <ul>
             <% @posts_recent.each do |r| %>
-              <li>
-                <h3 class="post-header"><%= link_to r.title, post_path(r) %></h3>
-                <div id="post-body-recent">
-                  <%= raw markdown.render(r.body.truncate(100)) %>
-                </div>
-                <div class="created-text">
-                  <% if r.user present? %>
-                    <p>Created By: <%= r.user.full_name %></p>
-                    <p><%= r.created_at.strftime("%B, %d, %Y") %></p>
-                  <% end %>
-                </div>
-              </li>
+            <li>
+              <h3 class="post-header"><%= link_to r.title, post_path(r) %></h3>
+              <div id="post-body-recent">
+                <%= raw markdown.render(r.body.truncate(100)) %>
+              </div>
+              <div class="created-text">
+                <% if r.user present? %>
+                  <p>Created By: <%= r.user.full_name %></p>
+                  <p><%= r.created_at.strftime("%B, %d, %Y") %></p>
+                <% end %>
+              </div>
+            </li>
             <% end %>
           </ul>
         </div>
