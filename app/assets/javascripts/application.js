@@ -20,7 +20,7 @@
 $(document).ready(function(){
 
   $('.search-container').hide();
-  $('.search-btn').click(function() {
+  $('.navbar').on('click', '.search-btn', function() {
     $('.search-container').slideToggle();
   });
 

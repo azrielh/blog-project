@@ -194,6 +194,7 @@ most viewed / recent posts and tags
 _________________________________*/
 
 .mini-search {
+  display: hidden;
   padding: 20px;
   i {
     color: $white;
@@ -202,6 +203,7 @@ _________________________________*/
     font-size: 14px;
   }
 }
+
 
 .viewed-recent {
   border-bottom: #494949 1px dotted;
